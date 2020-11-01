@@ -12,8 +12,6 @@ import ImageUpload from '../common/ImageUpload'
 import LocalLocationCard from '../locals/LocalLocationCard'
 import { geoCoord } from '../../lib/geocoord'
 
-// import Geocoord from '../../lib/Geocoord'
-
 class LocationNew extends React.Component {
 
   state = {
@@ -67,7 +65,6 @@ class LocationNew extends React.Component {
   }
 
   handleImageChange = url => {
-    console.log('uploaded, and url:', url)
     const formData = { ...this.state.formData, placePhotos: url }
     this.setState({ formData })
   }
@@ -76,7 +73,6 @@ class LocationNew extends React.Component {
     e.preventDefault()
 
     try {
-      console.log(this.state.formData.feature)
       if (this.state.formData.feature.length === 0 ||
         this.state.coordForm.coordInput === '' ||
         this.state.formData.placeName === '') throw new Error()
@@ -85,8 +81,7 @@ class LocationNew extends React.Component {
       if (this.state.coordForm.coordInput !== ''){
 
         const result = await geoCoord(this.state.coordForm.coordInput)
-        const resCoord = await createCoord(res.data._id, result)
-        console.log(resCoord)
+        await createCoord(res.data._id, result)
 
       }
       const newLocation = res.data

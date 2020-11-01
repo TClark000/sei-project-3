@@ -45,9 +45,9 @@ class LocationsMap extends React.Component {
 
   pickMapStyle(featureSelected) {
     if (featureSelected === 'gowild') {
-      return 'mapbox://styles/srtn10/ckfzrc12d1crn1alpsr4zljbm'
+      return 'mapbox://styles/teresajclark/ckgzm00mr1ewz19np07bvi341'
     } else if (featureSelected === 'nightlife') {
-      return 'mapbox://styles/srtn10/ckfzqya7i0i4r19qthsh2mthu'
+      return 'mapbox://styles/teresajclark/ckgzljupw81wz19paqpcu360m'
     } else {
       return 'mapbox://styles/mapbox/outdoors-v11'
     }

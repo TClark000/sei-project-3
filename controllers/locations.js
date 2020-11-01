@@ -8,7 +8,6 @@ async function locationIndex(req, res, next) {
     if (locations.length === 0) throw new Error(notFound)
     res.status(200).json(locations)
   } catch (err) {
-    // console.log(err)
     next(err)
   }
 }
@@ -20,13 +19,10 @@ async function locationCreate(req, res, next) {
 
     res.status(201).json(newLocation)
   } catch (err) {
-    console.log('THIS IS ERR in CREATE 🦄')
-    // console.log(err)
     next(err)
   }
 }
 
-// Show GET /id
 async function locationShow (req, res, next) {
 
   try {

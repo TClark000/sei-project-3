@@ -64,7 +64,6 @@ class LocationComments extends React.Component {
     }
     try {
       const resCreateComment = await createComment(this.props.locationId, formData)
-      console.log(resCreateComment)
       const returnedComments = resCreateComment.data.comments
       const newCommentsUpdated = [...returnedComments]
 

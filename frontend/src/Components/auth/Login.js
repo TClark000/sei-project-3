@@ -34,7 +34,6 @@ class Login extends React.Component {
       setToken(res.data.token)
 
       const userProfile = await getUserProfile()
-      console.log(userProfile.data.isLocal)
       isLocal(userProfile.data.isLocal)
 
 

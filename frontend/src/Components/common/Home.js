@@ -64,7 +64,7 @@ function Home() {
           width={7}
         >
           <div id='culture-img' className='home-images'></div>
-          {/* <Image bordered rounded size='large' src='https://cdn.theculturetrip.com/wp-content/uploads/2017/12/33554467340_65375926e8_k.jpg' /> */}
+    
         </Grid.Column>
       </Grid>
       {/* </Segment> */}

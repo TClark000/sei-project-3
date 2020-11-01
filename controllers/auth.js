@@ -1,4 +1,3 @@
-// const router = require('express').Router
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const { secret } = require('../config/environment')
@@ -9,7 +8,6 @@ async function register(req, res, next) {
     const user = await User.create(req.body)
     res.status(201).json({ message: `Welcome ${user.username}` })
   } catch (err) {
-    // console.log('***', err)
     next(err)
   }
 }
@@ -32,13 +30,11 @@ async function login(req, res, next) {
     })
 
   } catch (err) {
-    // console.log(err)
     next(err)
   }
 }
 
 async function userUpdate(req, res, next) {
-  // console.log('req.currentUser._id', req)
   try {
     const userToUpdate = await User.findById(req.currentUser._id)
     if (!userToUpdate) throw new Error(notFound)
@@ -54,7 +50,6 @@ async function profile(req, res, next) {
   try {
     const user = await User.findById(req.currentUser._id)
       .populate('createdLocations')
-    // console.log('**', user)
     if (!user) throw new Error(notFound)
     res.status(200).json(user)
   } catch (err){

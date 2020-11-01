@@ -1,6 +1,5 @@
 import React from 'react'
 import { Segment, Grid, Divider, Header, Dimmer, Loader } from 'semantic-ui-react'
-// import Scrollbar from 'semantic-ui-react-scrollbar'
 
 import { getLocations } from '../../lib/api'
 import LocationCard from './LocationCard'

@@ -10,14 +10,14 @@ const commentData = require('./data/comments')
 mongoose.connect(
   dbURI,
   { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
-  async (err, db) => { // db gives a persistent connection to db
+  async (err, db) => {
     if (err){
       console.log(err)
       return
     }
 
     try {
-      await mongoose.connection.db.dropDatabase() //delete db data
+      await mongoose.connection.db.dropDatabase()
       console.log('Database dropped')
 
       const users = await User.create(userData)
@@ -41,11 +41,6 @@ mongoose.connect(
         await locationById.comments.push(commentWithUsers[index])
         await locationById.save()
       }
-      console.log(`${commentWithUsers.length} comments created`)
-      // const locationsResult = await Location.find()
-      // locationsResult.forEach(location => {
-      //   console.log(location.placeName, 'comments: ', location.comments)
-      // })
     
     } catch (err) {
       console.log(err)

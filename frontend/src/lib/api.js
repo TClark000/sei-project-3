@@ -43,10 +43,6 @@ export function getUserProfile(){
   return axios.get('/api/profile', withHeaders())
 }
 
-
-
-//Authentication
-
 export const registerUser = (formData) => {
   return axios.post('/api/register/', formData )
 }

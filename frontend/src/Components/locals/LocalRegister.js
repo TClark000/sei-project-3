@@ -31,7 +31,6 @@ class LocalRegister extends React.Component {
     try {
       if (this.authenticated()) {
         const res = await getUserProfile()
-        console.log(res.data.username, res.data.isLocal, res.data.userimage)
         const formData = {
           ...this.state.formData,
           username: res.data.username,
@@ -41,7 +40,6 @@ class LocalRegister extends React.Component {
         }
         this.setState({ formData })
       }
-      // return isAuthenticated()
     } catch (err) {
       console.log(err)
     }
@@ -66,7 +64,6 @@ class LocalRegister extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const authenticated = this.authenticated()
-    // console.log(authenticated, this.state.formData)
 
     let image = ''
     if (this.state.formData.userimagecurrent && !this.state.formData.userimage) {

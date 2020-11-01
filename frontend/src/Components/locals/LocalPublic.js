@@ -3,7 +3,6 @@ import { Item } from 'semantic-ui-react'
 
 const LocalPublic = (props) => {
 
-  console.log(props)
   const { username, bio, userimage } = props
 
   return (

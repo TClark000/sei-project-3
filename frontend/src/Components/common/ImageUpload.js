@@ -29,7 +29,6 @@ class ImageUpload extends React.Component {
   render() {
     const { image } = this.state
     return (
-      // <div>HelloImageUpload</div>
       <>
         {image ?
           <div style={{ width: '300px' }}>

@@ -18,13 +18,3 @@ export async function geoCoord(coordInput){
   )
   return result
 }
-
-// Geocode.fromLatLng('46.220537', '-74.552723').then(
-//   response => {
-//     const address = response.results[0].formatted_address
-//     console.log(address)
-//   },
-//   error => {
-//     console.error(error)
-//   }
-// )
