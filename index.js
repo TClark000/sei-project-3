@@ -26,12 +26,16 @@ app.use((req, res, next) => {
   next()
 }) 
 
+app.use(express.static(`${__dirname}/frontend/build`))
+
 app.use(express.json())
 
 app.use(logger)
 
 app.use('/api', router)
 
+app.use('/*', (_, res) => res.sendFile(`${__dirname}/frontend/build/index.html`))
+
 app.use(errorHandler)
 
-app.listen(port, () => console.log(`Listening on localhost:${port} 🌈 `))
+app.listen(port, () => console.log(`Listening on localhost:${port} `))

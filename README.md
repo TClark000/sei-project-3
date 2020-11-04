@@ -21,7 +21,7 @@ The landing page for the app is shown:
 
 There are 3 main features: nightlife, summer and go-wild.  Visitors and locals (posting events) can allocate events to each of these different feature types.
 
-<img src="./img/features.png" alt="drawing" width="300"/>
+![Example screenshot](./img/features.png)
 <img src="./img/features-summer.png" alt="drawing" width="300"/>
 
 Mapbox has different map styles, in the application each feature had a different styled map.  The go-wild style was based on mapbox 'Frank' inspired by Frank Lloyd Wright.
@@ -67,14 +67,19 @@ Back End:
 
 ## Setup
 
+Deployed with Heroku the React API webapp is hosted here:
+
+*** Arriving shortly ***
+
 Use the following commands to run the development server:
 
-- `mongod --dbpath ~/data/db` to run the primary daemon process for MongoDB `yarn start` backend side
-- `yarn start` frontend side
+- `mongod --dbpath ~/data/db` to run the primary daemon process for MongoDB 
+- `npm run dev` on the backend side
+- to view in a browser: localhost:3000
 
 
 ## Code Examples
-React-geocode API was used to source the latitude and longitude of newly added events.  The search area was set to Canada.  Users are able to search for location by postcode or name.
+Following code written by myself include accessing the React-geocode API to source the latitude and longitude of newly added events.  The search area was set to Canada.  Users are able to search for location by postcode or name.
 ```js
 export async function geoCoord(coordInput){
   const ApiKey = process.env.REACT_APP_GOOGLE_MAPS_GEOCODING_API
@@ -111,18 +116,16 @@ async function locationCoordCreate(req, res,next) {
   }
 } 
 ```
-For the database seed process, comments and locations were locally stored.  User profiles were available via the Faker Python package that generates fake data and also by a small set locally.  During the seed process users were assigned to locations and comments randomly.
+For the database seed process, comments and locations were locally stored.  User profiles were available via the Faker Python package that generates fake data (`npm run seedexternal`) and also by a small set locally (`npm run seed`).  During the seed process users were assigned to locations and comments randomly.
 
 ```js
       const users = await User.create(userData)
-      console.log(`${users.length} users created`)
 
       const locationWithUsers = locationData.map(location => {
         location.local = users[(Math.floor(Math.random() * (users.length - 1)))]._id
         return location
       })
       const locations = await Location.create(locationWithUsers)
-      console.log(`${locations.length} locations created`)
       
       const commentWithUsers = commentData.map(comment => {
         comment.local = users[(Math.floor(Math.random() * (users.length - 1)))]._id
