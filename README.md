@@ -69,7 +69,7 @@ Back End:
 
 Deployed with Heroku the React API webapp is hosted here:
 
-*** Arriving shortly ***
+[GA LDN sei-project-three](https://sei50-p3.herokuapp.com/) 
 
 Use the following commands to run the development server:
 
