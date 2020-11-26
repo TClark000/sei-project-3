@@ -9,11 +9,13 @@ A team project over approx one week.
 * [Pre-Work](#pre-work)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Code Examples](#code-examples)
 * [Features](#features)
+* [Challenges and Wins](#challenges-and-wins)
 * [Status](#status)
 
 ## General info
-A team project we choose to build a lifestyle application giving local tips about visiting Montréal, Canada.  Inspiration was drawn from sites such as wwoof.net and booking.
+Our team choose to build a lifestyle application giving local tips about visiting Montréal, Canada.  Inspiration was drawn from sites such as wwoof.net and booking.com
 
 ## Screenshots
 The landing page for the app is shown:
@@ -57,6 +59,9 @@ Dev Tools:
 - Google Chrome dev tools
 - Figma
 
+Image Processing and Management
+- Cloudinary
+
 Back End:
 - Bcrypt
 - Express
@@ -76,7 +81,6 @@ Use the following commands to run the development server:
 - `mongod --dbpath ~/data/db` to run the primary daemon process for MongoDB 
 - `npm run dev` on the backend side
 - to view in a browser: localhost:3000
-
 
 ## Code Examples
 Following code written by myself include accessing the React-geocode API to source the latitude and longitude of newly added events.  The search area was set to Canada.  Users are able to search for location by postcode or name.
@@ -100,7 +104,7 @@ export async function geoCoord(coordInput){
   return result
 }
 ```
-Location coordinates were stored in the db by calling the API and function locationCoordCreate:
+Location coordinates were stored in the database by calling the API and function locationCoordCreate:
 ```js
 async function locationCoordCreate(req, res,next) {
   try {
@@ -140,6 +144,25 @@ For the database seed process, comments and locations were locally stored.  User
       }
 ```
 
+Cloudinary is a SaaS and provides an API repository for image storage, shown is code from the ImageUpload.js component.  When an image is successfully posted in Cloudinary it will render:
+
+```js
+    {image ?
+      <div style={{ width: '300px' }}>
+        <img src={image} alt="selected" style={{ width: '50%', height: 'auto' }}/>
+      </div>
+      :
+      <>
+        <label id='img-upload-label' className="label">{this.props.labelText || '(10mb max - please wait for the image to display)'}</label>
+        <input
+          className="input"
+          type="file"
+          onChange={this.handleUpload}
+        />
+      </>
+    }
+```
+
 ## Features
 List of features ready and TODOs for future development
 * The overall feature concept for the application adds appeal to the site - Discover Montréal | nightlife, summer & gowild
@@ -148,6 +171,16 @@ List of features ready and TODOs for future development
 * Visitor and local users can register, login and create profiles and upload images
 * TODO would include additional visitor and local features such as contacting those hosting events, scheduling and booking
 
+## Challenges and Wins
+* The first hurdle for my team was ... picking the team name 'Pistachio Glampers'  The initial plan was to create a glamping website (camping involving accommodation and facilities more luxurious than those associated with traditional camping).  We changed tack though and the app is based on locals providing tips about visiting Montréal, Canada.  The team name remained
+* Working as a team, planning, git, creating and checking out branches, merging and pushing to GitHub
+    ```shell
+    ➜  sei-project-3 git:(development) gco -b coord
+    Switched to a new branch 'coord'
+    ➜  sei-project-3 git:(coord) 
+    ```
+* Features such as adding geo-coordinates, image uploads, updating profiles from a general user to a contributing local were enjoyable to resolve
+* Focusing on the qualities of a successful team: listening, contributing, supporting, planning and the odd laugh - focusing on our goal was a win 
 
 ## Status
 Project is: _no longer continue_ (GA software immersion course concluded)
